@@ -19,7 +19,7 @@ client = Client((MEMCACHED_HOST, MEMCACHED_PORT))
 
 def misppull(dataType):
   headers={'Authorization':MISP_API_KEY,'Accept':'application/json','Content-type':'application/json'}
-  data=json.dumps({"returnFormat":"json","type":dataType,"tags":"Feed-%","to_ids":"yes","includeEventTags":"yes","includeContext":"yes"})
+  data=json.dumps({"returnFormat":"json","type":dataType,"tags":"Feed-%","to_ids":1,"includeEventTags":1,"includeContext":1})
   response = requests.post(MISP_URL,headers=headers,data=data,verify=False)
   return response
 
